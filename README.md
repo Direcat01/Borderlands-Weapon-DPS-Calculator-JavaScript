@@ -6,6 +6,10 @@ This now has a template to use the math functions to generate the DPS values of 
 Here is an example website: (https://leftbased.github.io/Borderlands-Weapon-DPS-Calculator-JavaScript/)
 
 [changelog]
+v0.05<br />
+- added guardian rank passive bonuses to calculator.
+- reload speed passive bonus is bugged so I disabled it.
+- updated html form to reflect new changes.
 
 v0.04<br />
 - added elemental damage and element chance to the math formula.
