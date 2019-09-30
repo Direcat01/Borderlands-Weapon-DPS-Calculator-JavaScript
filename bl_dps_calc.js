@@ -91,7 +91,7 @@ function run_datacheck(){ //runs a small input data check.
 	}
 }
 function ele_calc(){ //calculate with elemental chance/damage.
-	var NewDPS = WeaponDamage.replace("x","*"); //cheap fix for weapons that have 128x17
+	var NewDPS = parseFloat(WeaponDamage.replace('x','*')); //cheap fix for weapons that have 128x17
 	run_datacheck();
 
 	let secEle = parseFloat((ElementalChance / 1000) * 10).toFixed(3); //0.345% ?
@@ -150,7 +150,8 @@ function insertDecimal(num) {
 
 function guard_ele_acc_calc(){ //calculate with elemental chance/damage with base accuracy data.
 	run_datacheck();
-	var NewDPS = WeaponDamage.replace("x","*"); //cheap fix for weapons that have 128x17
+	var NewDPS = parseFloat(WeaponDamage.replace('x','*')); //cheap fix for weapons that have 128x17
+
 	let b_gd_p = parseFloat((guardWepDMG / 1000) * 10).toFixed(3); //bonus damage
 	console.log("b_gd_p:" + b_gd_p);
 	let b_gacc_p = parseFloat((guardWepACC / 1000) * 10).toFixed(3); //bonus accuracy
@@ -196,7 +197,8 @@ if (isNaN(guardWepRS) || guardWepRS < 1) { // gotta check ReloadSpeed
 	console.log("Weapon DPS (+Elemental+Accuracy): " + x);
 }
 function reg_calc(){ //calculate without elemental chance/damage.
-	var NewDPS = WeaponDamage.replace("x","*"); //cheap fix for weapons that have 128x17
+	var NewDPS = parseFloat(WeaponDamage.replace('x','*')); //cheap fix for weapons that have 128x17
+	
 	run_datacheck();
 
 	let secMF = parseFloat(MagSize / FireRate);
