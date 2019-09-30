@@ -1,5 +1,7 @@
 // Borderlands DPS Calculator - JavaScript edition!
 //============================================================================
+// v0.06 - allowed "DamagexPellets" (ie. 7x18) damage to be calculated.
+//       - adjusted textbox widths on html file.
 // v0.05 - added guardian rank passive bonuses to calculator.
 //       - reload speed passive bonus is bugged so I disabled it.
 //       - updated html form to reflect new changes.
@@ -89,13 +91,14 @@ function run_datacheck(){ //runs a small input data check.
 	}
 }
 function ele_calc(){ //calculate with elemental chance/damage.
+	var NewDPS = WeaponDamage.replace("x","*"); //cheap fix for weapons that have 128x17
 	run_datacheck();
 
 	let secEle = parseFloat((ElementalChance / 1000) * 10).toFixed(3); //0.345% ?
 	let secMF = parseFloat(MagSize / FireRate);
 	let secMFR = parseFloat(secMF + ReloadSpeed);
 	let zebra = parseFloat(ElementalDamage * secEle);
-	let TotalMagDamage = parseFloat(MagSize * WeaponDamage);
+	let TotalMagDamage = parseFloat(MagSize * NewDPS);
 	let FinalDPS = parseFloat(((TotalMagDamage / secMFR) + zebra)).toFixed(3);; 
 
 	x = FinalDPS.toString();
@@ -104,6 +107,7 @@ function ele_calc(){ //calculate with elemental chance/damage.
 	console.log("Weapon DPS (+Elemental): " + x);
 }
 function ele_acc_calc(){ //calculate with elemental chance/damage with base accuracy data.
+	var NewDPS = parseFloat(WeaponDamage.replace('x','*')); //cheap fix for weapons that have 128x17
 	run_datacheck();
 
 	let secEle = parseFloat((ElementalChance / 1000) * 10).toFixed(3); //34.5 = 0.345% ?
@@ -111,7 +115,7 @@ function ele_acc_calc(){ //calculate with elemental chance/damage with base accu
 	let secMF = parseFloat(MagSize / FireRate);
 	let secMFR = parseFloat(secMF + ReloadSpeed);
 	let zebra = parseFloat(ElementalDamage * secEle);
-	let TotalMagDamage = parseFloat(MagSize * WeaponDamage);
+	let TotalMagDamage = parseFloat(MagSize * NewDPS);
 	let FinalDPS = parseFloat(secAcc * (((TotalMagDamage / secMFR) + zebra))).toFixed(2); 
 
 	x = FinalDPS.toString();
@@ -143,8 +147,10 @@ function insertDecimal(num) {
 				  }
 				return total;
 			   }
+
 function guard_ele_acc_calc(){ //calculate with elemental chance/damage with base accuracy data.
 	run_datacheck();
+	var NewDPS = WeaponDamage.replace("x","*"); //cheap fix for weapons that have 128x17
 	let b_gd_p = parseFloat((guardWepDMG / 1000) * 10).toFixed(3); //bonus damage
 	console.log("b_gd_p:" + b_gd_p);
 	let b_gacc_p = parseFloat((guardWepACC / 1000) * 10).toFixed(3); //bonus accuracy
@@ -176,7 +182,7 @@ if (isNaN(guardWepRS) || guardWepRS < 1) { // gotta check ReloadSpeed
 }
 	let zebra = parseFloat(sum([ElementalDamage * secEle]).toFixed(3));
 	console.log("zebra: " + zebra); //elemental reee
-	let resDmg = parseFloat(sum([WeaponDamage * (1 + b_gd_p)])).toFixed(3);
+	let resDmg = parseFloat(sum([NewDPS * (1 + b_gd_p)])).toFixed(3);
 	console.log("resDmg: " + resDmg);
 	let TotalMagDamage = parseFloat(sum([MagSize * resDmg])).toFixed(3);
 	console.log("TotalMagDamage: " + TotalMagDamage);
@@ -190,11 +196,12 @@ if (isNaN(guardWepRS) || guardWepRS < 1) { // gotta check ReloadSpeed
 	console.log("Weapon DPS (+Elemental+Accuracy): " + x);
 }
 function reg_calc(){ //calculate without elemental chance/damage.
+	var NewDPS = WeaponDamage.replace("x","*"); //cheap fix for weapons that have 128x17
 	run_datacheck();
 
 	let secMF = parseFloat(MagSize / FireRate);
 	let secMFR = parseFloat(sum([secMF, ReloadSpeed]));
-	let TotalMagDamage = parseFloat(MagSize * WeaponDamage);
+	let TotalMagDamage = parseFloat(MagSize * NewDPS);
 	let FinalDPS = parseFloat(TotalMagDamage / secMFR).toFixed(2); 
 
 	x = FinalDPS.toString();
