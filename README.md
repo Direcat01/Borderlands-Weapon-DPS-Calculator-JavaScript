@@ -7,6 +7,9 @@ Here is an example website: (https://leftbased.github.io/Borderlands-Weapon-DPS-
 
 [changelog]
 
+v0.06<br />
+- added the ability to calculate damage x pellets ex: 7x42 in weapon damage box. and adjusted html file.
+
 v0.05<br />
 - added guardian rank passive bonuses to calculator.
 - reload speed passive bonus is bugged so I disabled it.
