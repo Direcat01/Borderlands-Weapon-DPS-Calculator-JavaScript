@@ -3,46 +3,36 @@
 <head>  
     <meta chrset="UTF 8">
     <title>BL Weapon DPS Calculator v0.06</title>     
-<style>
-body {
-  background-color: #000000;
-}
-h4 {
-color: #F7FE01;
-}
-h3 {
-color: #01FE32;
-}
-input[type=text] {
-background-color: #000000;
-color: #01FE32;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This allows for changes in the style sheet based off of the screen width -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>  
-<h3>Borderlands Weapon DPS Calculator</h3>
+<h2>Borderlands Weapon DPS Calculator</h2>
 
 <script src="bl_dps_calc.js"></script>
 <!-- format: wep dmg, wep acc, wep handling, wep reload, wep firerate, wep mag size, ele damage, ele chance -->
-<h4>Weapon Damage: <input type="text" id="wDamage" value="359" style="width:64px;"/></h4>
-<h4>Weapon Accuracy: <input type="text" id="wAccu" value="93.7" style="width:42px;"/></h4>
-<h4>Weapon Reloadspeed: <input type="text" id="wReloadSpeed" value="4.0" style="width:42px;"/></h4>
-<h4>Weapon Firerate: <input type="text" id="wFirerate" value="5.2" style="width:42px;"/></h4>
-<h4>Weapon Magazine Size: <input type="text" id="wMagSize" value="21" style="width:42px;"/></h4>
-<h4>Weapon Elemental Damage: <input type="text" id="wEleDamage" value="81.6" style="width:42px;"/></h4>
-<h4>Weapon Elemental Chance: <input type="text" id="wEleChance" value="34.5" style="width:42px;"/></h4>
-<h4>Guardian Rank Boosts (Optional)</h4>
-<h4>Gun Damage Bonus %: <input type="text" id="wGDB" value="7.46" style="width:42px;"/></h4>
-<h4>Gun FireRate Bonus %: <input type="text" id="wGFRB" value="4.37" style="width:42px;"/></h4>
-<h4>Gun Accuracy Bonus %: <input type="text" id="wGAB" value="0" style="width:42px;"/></h4>
+<h4>Weapon Damage: </h4><input type="number" id="wDamage" value="359"/><br>
+<h4>Weapon Accuracy: </h4><input type="number" id="wAccu" value="93.7"/><br>
+<h4>Weapon Reloadspeed: </h4><input type="number" id="wReloadSpeed" value="4.0"/><br>
+<h4>Weapon Firerate: </h4><input type="number" id="wFirerate" value="5.2"/><br>
+<h4>Weapon Magazine Size: </h4><input type="number" id="wMagSize" value="21"/><br>
+<h4>Weapon Elemental Damage: </h4><input type="number" id="wEleDamage" value="81.6"/><br>
+<h4>Weapon Elemental Chance: </h4><input type="number" id="wEleChance" value="34.5"/><br>
+<h3>Guardian Rank Boosts (Optional)</h3>
+<h4>Gun Damage Bonus %: </h4><input type="number" id="wGDB" value="7.46"/><br>
+<h4>Gun FireRate Bonus %: </h4><input type="number" id="wGFRB" value="4.37"/><br>
+<h4>Gun Accuracy Bonus %: </h4><input type="number" id="wGAB" value="0"/><br>
 <!--Reload bonuses are bugged had to disable! <h4>Gun ReloadSpeed Bonus %: <input type="text" disabled="true" id="wGRSB" value="0" style="width:42px;"/></h4> --> 
 
-<h4>Calculated DPS: <input type="text" id="CalcDPS" value="0" style="width:200px;"/></h4>
+<h4>Calculated DPS: </h4><input type="text" id="CalcDPS" value="0" disabled="disabled"/><br>
 
+<div>
 <button onclick="submit();" href="javascript:;">Calculate DPS!</button>
 <button onclick="submit2();" href="javascript:;">Calculate DPS+Guardian Ranks</button>
 <button onclick="clearText();" href="javascript:;">Clear Values</button>
 <button onclick="openGitHub();" href="javascript:;">Get Sourcecode</button>
 <button onclick="openDonate();" href="javascript:;">Donate</button>
+</div>
 <br /><br />
 <a href="https://paypal.me/internprimas" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" title="Donate to Developer"></a>
 
